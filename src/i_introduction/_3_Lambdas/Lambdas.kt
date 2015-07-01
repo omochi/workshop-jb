@@ -35,7 +35,9 @@ fun todoTask3(collection: Collection<Int>) = TODO(
     """,
     references = { JavaCode3().task3(collection) })
 
-fun task3(collection: Collection<Int>): Boolean = todoTask3(collection)
+fun task3(collection: Collection<Int>): Boolean {
+    return collection.firstOrNull { it % 42 == 0 } != null
+}
 
 
 
