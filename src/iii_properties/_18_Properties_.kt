@@ -40,7 +40,12 @@ class PropertiesWithCustomAccessors {
 
 class PropertyExample() {
     var counter = 0
-    var propertyWithCounter: Int? = todoTask18()
+    var propertyWithCounter: Int? = null
+        get() = $propertyWithCounter
+        set(value: Int?) {
+            counter++
+            $propertyWithCounter = value
+        }
 }
 
 fun todoTask18() = TODO(
