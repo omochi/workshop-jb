@@ -20,12 +20,23 @@ fun task28() = TODO(
         }
 )
 
+fun <T, C> Collection<T>.partitionTo(ps: C, ns: C, pred: (T)->Boolean):
+        Pair<C, C> where C : MutableCollection<T>
+{
+    for (item in this) {
+        if (pred(item)) {
+            ps.add(item)
+        } else {
+            ns.add(item)
+        }
+    }
+    return Pair(ps, ns)
+}
+
 fun List<String>.partitionWordsAndLines(): Pair<List<String>, List<String>> {
-    task28()
-//    return partitionTo(ArrayList<String>(), ArrayList()) { s -> !s.contains(" ") }
+    return partitionTo(ArrayList<String>(), ArrayList()) { s -> !s.contains(" ") }
 }
 
 fun Set<Char>.partitionLettersAndOtherSymbols(): Pair<Set<Char>, Set<Char>> {
-    task28()
-//    return partitionTo(HashSet<Char>(), HashSet()) { c -> c in 'a'..'z' || c in 'A'..'Z'}
+    return partitionTo(HashSet<Char>(), HashSet()) { c -> c in 'a'..'z' || c in 'A'..'Z'}
 }
