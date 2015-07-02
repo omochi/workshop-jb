@@ -7,6 +7,5 @@ fun example5() {
 }
 
 fun Shop.getCustomersSortedByNumberOfOrders(): List<Customer> {
-    // Return customers sorted by number of orders they made
-    todoCollectionTask()
+    return customers.sortBy { it.orders.size() }
 }
